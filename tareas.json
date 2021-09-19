@@ -12,7 +12,19 @@
         "estado": "pendiente"
     },
     {
-        "titulo": "calculo",
+        "titulo": "Calculo",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Exobiologia",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Heliosismologia",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Neurobiologia",
         "estado": "pendiente"
     }
 ]

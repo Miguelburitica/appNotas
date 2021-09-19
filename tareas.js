@@ -12,12 +12,12 @@ const Listar = function (){
 const LeerJson = () => JSON.parse(fs.readFileSync("./tareas.json"));
 
 const EscribirJSON = function (array){
-    let arrayJson = JSON.stringify(array)
-    fs.writeFileSync("./tareas.json", arrayJson, null, 4);
+    let arrayJson = JSON.stringify(array, null, 4)
+    fs.writeFileSync("./tareas.json", arrayJson);
 }
 
 const GuardarTarea = function (tareaObj){
-    let todaInfo = leerJson();
+    let todaInfo = LeerJson();
     todaInfo.push(tareaObj);
     EscribirJSON(todaInfo);
 }
@@ -31,7 +31,4 @@ const LeerPorEstado = function (estado) {
     return tareasActuales.filter((item) => item.estado == estado)
 }
 
-const FiltrarPorEstado = () => console.log("sapo");
-
-
-module.exports = {Listar, EscribirJSON, GuardarTarea, AlertaUndefined, NoEntender, LeerPorEstado, FiltrarPorEstado, LeerJson};
+module.exports = {Listar, EscribirJSON, GuardarTarea, AlertaUndefined, NoEntender, LeerPorEstado, LeerJson};
