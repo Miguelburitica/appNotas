@@ -24,31 +24,36 @@
 // 4. Se lleva el código a un modulo
 
 const { fstat } = require('fs');
-let funcionesTareas = require('./tareas.js');
+let archivoTareas = require('./tareas.js');
 
 let accion = process.argv[2];
 
 switch(accion) {
-    case 'listar':
-        funcionesTareas.Listar();
-        break;
 
-    // Micro desafío 1
-    // Atajar el caso en que no se envíe un parámetro
     case undefined:
         archivoTareas.AlertaUndefined();
         break;
 
+    case 'listar':
+        funcionesTareas.Listar();
+        break;
+
     case "crear":
-        titulox = process.argv[3];
-        tareaAdd = {
+        let titulox = process.argv[3];
+        let tareaAdd = {
             titulo : titulox,
             estado : "pendiente"
         };
         archivoTareas.GuardarTarea(tareaAdd);
         break;
 
-    // Micro desafío 2
+    case "filtrar":
+        let estadox = process.argv[3]; 
+        let i = 0
+        archivoTareas.LeerPorEstado(estadox).forEach(element => console.log("\t" , ++i ,". " , element));
+
+        break
+
     default:
         archivoTareas.NoEntender();
         console.log('Las acciones disponibles son: listar');
